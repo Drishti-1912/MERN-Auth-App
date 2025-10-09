@@ -6,9 +6,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios.get("http://localhost:5000/api/protected", {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    axios.get(`${process.env.REACT_APP_API_URL}/api/protected`, {
+  headers: { Authorization: `Bearer ${token}` }
+})
       .then(res => setMessage(res.data.message))
       .catch(() => setMessage("Unauthorized"));
   }, []);

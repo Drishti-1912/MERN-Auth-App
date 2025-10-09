@@ -8,7 +8,15 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://mern-auth-app-frontend-three.vercel.app",
+    "https://mern-auth-app-frontend-git-main-drishtis-projects-ef8c2a2f.vercel.app"
+    // Add any additional Vercel domains here
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // routes
